@@ -1,0 +1,9 @@
+carte arduino
+leds
+bouton poussoir
+module bluetooth
+haut parleur
+batterie
+module usb c
+ecran lcd (optionel)
+Rocker Switch
