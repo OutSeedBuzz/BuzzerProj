@@ -1,9 +1,27 @@
-carte arduino
-leds
-bouton poussoir
-module bluetooth
-haut parleur
-batterie
-module usb c
-ecran lcd (optionel)
-Rocker Switch
+BUZZER
+
+CARTE ESP32
+leds ( led smd 3528 rouge )
+bouton poussoir ( Bouton Poussoir 4Pin 6x6x5mm )
+haut parleur ( 8 Ohms , 0,5W )
+batterie ( Samsung INR18650-35E 3400mAh )
+module usb c ( TP4056 Module Chargeur 5V 1A USB C )
+Module Boost MT3608
+breadboards
+resistances
+PAM8403
+
+
+
+
+MODULE INTERMMEDIAIRE
+
+CARTE ESP32
+ecran lcd ( LCD 1602 Module )
+batterie ( Samsung INR18650-35E 3400mAh )
+module usb c ( TP4056 Module Chargeur 5V 1A USB C )
+Module Boost MT3608
+breadboards
+resistances
+i2c interface
+pam8403
