@@ -1,27 +1,95 @@
-BUZZER
+BUZZER:
 
 CARTE ESP32
-leds ( led smd 3528 rouge )
-bouton poussoir ( Bouton Poussoir 4Pin 6x6x5mm )
-haut parleur ( 8 Ohms , 0,5W )
+leds (APA106 8MM x2 )
+bouton poussoir ( Bouton Poussoir 4Pin 12x12x5mm )
 batterie ( Samsung INR18650-35E 3400mAh )
-module usb c ( TP4056 Module Chargeur 5V 1A USB C )
+module usb c ( TP4056 Module Chargeur 5V 1A USB C ) ( Le module IP2312 (recharge 3x plus rapide )
 Module Boost MT3608
 breadboards
 resistances
+intrerupteur a bascule
+Support de batterie berceaux 18650 2 places
+
+
+
+MODULE INTERMMEDIAIRE:
+
+CARTE ESP32 
+ecran lcd ( LCD 1602 Module avec i2c interface )
+batterie ( Samsung INR18650-35E 3400mAh )
+module usb c ( TP4056 Module Chargeur 5V 1A USB C ) ( Le module IP2312 (recharge 3x plus rapide )
+Module Boost MT3608
+breadboards
+resistances
+intrerupteur a bascule
+Support de batterie berceaux 18650 4 places
+led APA106
+Haut Parleur 8 ohms
 PAM8403
 
+(Module carte SD
+Carte SD)
 
 
 
-MODULE INTERMMEDIAIRE
 
-CARTE ESP32
-ecran lcd ( LCD 1602 Module )
-batterie ( Samsung INR18650-35E 3400mAh )
-module usb c ( TP4056 Module Chargeur 5V 1A USB C )
-Module Boost MT3608
-breadboards
-resistances
-i2c interface
-pam8403
+POUR TOUT:
+MODULE BMS 1S SECURTIE BATTERIE
+Cables dupont
+
+
+
+
+
+FONCTIONNEMENT:
+
+
+
+Les buzzers sont connectés au module central en Wi-Fi
+Le module central est connecté en bluetooth au téléphone de l'animateur
+L'animateur énonce la question puis appuie  depuis le téléphone / bouton poussoir du module central
+Sur l'écran LCD du module central Un Timer se lance en meme temps qu'un décompte sonore sur le haut parleur du module central pendant ce décompte les buzzers seront bloqués et si les gens appuient dessus rien ne se passe
+Apres le décompte les buzzers pourront être activé la première équipe a appuyé sur le buzzer sera affiché sur la ligne 1 de l'écran LCD et en dessous le temps qu'elle a mis a appuyé depuis la fin du décompte.
+Un décompte de X secondes se lance pour quelle réponde ( ? possibilité de reset ce timer pour laisser une autre équipe répondre tout en bloquant l'équipe qui na pas réussis a avoir la bonne réponse ??? )
+
+
+
+Fonctionnalité possible
+Possibilité de validé la réponse depuis le téléphone avec allumage led couleur rouge ou verte mauvaise / bonne réponse 
+son de bonne / mauvaise réponse ? 
+
+
+
+
+
+
+
+
+CARTE ESP32 https://www.amazon.fr/dp/B0D86QJ1YB/ref=sspa_dk_detail_0?psc=1&pd_rd_i=B0D86QJ1YB&pd_rd_w=MXguU&content-id=amzn1.sym.a4e55ac1-dc0d-4e33-869b-bcfa8ab5ea4a&pf_rd_p=a4e55ac1-dc0d-4e33-869b-bcfa8ab5ea4a&pf_rd_r=DY10KDJX154RDXRV058Y&pd_rd_wg=Ds3BC&pd_rd_r=62fd6446-a734-4e56-ad64-dcfa12a1a823&aref=EpS42Kcg8G&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWw
+
+LED APA106 https://fr.aliexpress.com/item/32867616055.html?src=bing&exp_tag=pcgcp&albch=shopping&acnt=135095331&albcp=555315008&albag=1296325401357185&slnk=&trgt=pla-2332820077116302&plac=&crea=81020396324467&netw=o&device=c&mtctp=e&utm_source=Bing&utm_medium=shopping&utm_campaign=PA_Bing_FR_PMAX_ALL_maxvalue_20250221_newstore&utm_content=ALL&utm_term=led+apa106+8mm&msclkid=ae5f840695fa192b3c32ee27f1d0d565&aff_fcid=01f43e3888ae486091fb6a389ec2d1ab-1780573345583-02750-UneMJZVf&aff_fsk=UneMJZVf&aff_platform=aaf&sk=UneMJZVf&aff_trace_key=01f43e3888ae486091fb6a389ec2d1ab-1780573345583-02750-UneMJZVf&terminal_id=468c6761b0374ab999106604764224eb&afSmartRedirect=n&gatewayAdapt=glo2fra
+
+BOUTON PPOUSSOIR https://www.amazon.fr/AUKENIEN-Electronique-Interrupteurs-Momentan%C3%A9s-dassortiment/dp/B09WZ11JZG/ref=pd_rhf_se_s_pd_sbs_rvi_d_sccl_1_3/520-1903629-0257749?pd_rd_w=I8zJT&content-id=amzn1.sym.be9bed83-67ee-4372-ab45-33731bdebce9&pf_rd_p=be9bed83-67ee-4372-ab45-33731bdebce9&pf_rd_r=EP2E89FKR70W2JCDF0Z4&pd_rd_wg=ZvTyW&pd_rd_r=7ec56f6f-d488-4a00-8c3a-d3033bedd72b&pd_rd_i=B09WZ11JZG&th=1
+
+BATTERIE ( a prendre 6 fois) https://www.nkon.nl/fr/tenpower-inr18650-35he-3500mah-10a.html
+
+MODULE USB C (a prendre 2fois) https://www.amazon.fr/gp/product/B0C5JGL776/ref=ox_sc_act_title_1?smid=A14J53JFJ69BIL&psc=1
+
+Module BOOST MT3608 https://www.amazon.fr/TECNOIOT-MT3608-Module-Booster-Arduino/dp/B07G4KWV6S/ref=sr_1_1?dib=eyJ2IjoiMSJ9.lFNbZcD8OMRXdu8j7Lk7zDsGjqme1LH0QYhs1pAnvi2AaHoAX80kEXs92e1uqwlXaYecTftLCM4YTF3b-cblstjeJctO9vNBDn8pbVBRzqb5796_DdwPCckrpVt6UcRATnPpffGFaOLinMjSvw5Uza-je4g5J6tZ1m-Clrp5YLj0RC7q4bqpbB_c-0TkIiHA_u5lg3PobzZHQcX2LpPHk_ibdqxNPFWaVq4RO2YC3Hf9PrqrV01Op3frWsUEJN1zWk3myjorrKwJZ3xUdpqQHfEDpnZrJKe7JM2J0hqNLJo.x-egAAxQE2Woe_NTK0iar1CQRHFzZTMOh17I7G29bsI&dib_tag=se&keywords=Module+Boost+MT3608&qid=1780574880&sr=8-1
+
+Breadboards et cables pour test https://www.amazon.fr/BOJACK-Breadboard-dattache-Cavalier-Flexible/dp/B0B18G3V5T/ref=sr_1_1_sspa?adgrpid=1363395354413214&dib=eyJ2IjoiMSJ9.aRQeJMI5vdGBirt5tCbbkhxj10lAD-np1Gd6ngDaNr8TXHmFIoOBc0ZttwQLms0ZtJ_RGjl5s4Pm7DnWyKgJoo9chddrrm3UjxRhMzDo1ZszjccXsCaLZdT9TblngVvFRCrwp1DikJvypPzDwdcw7DnkIMkytH4kckjedmHBRkY8ZaNUeAoyuASWvcHq8dEaikX3o4N8-r6ITngLwn-jIcJ6Bs1y86bnLlr1adiUtaxW4WfnX_l6ItzOLywsJkB4AiQa63gPtm19GRwc2xevZTBfZAUe9SlNMIvwlzpvcsw.RMjdyxN6L7hpT4Ib2Bi9WgF1A-FsqbgJdkRzTPQ6--0&dib_tag=se&hvadid=85212468132937&hvbmt=be&hvdev=c&hvlocphy=188146&hvnetw=o&hvqmt=e&hvtargid=kwd-85212735977505%3Aloc-66&hydadcr=27705_1885559&keywords=breadboard&mcid=492807a0ec663736b78185a70b523d3f&msclkid=7bff70506c511b89de041a7107804cd0&qid=1780575304&sr=8-1-spons&aref=qrfcjagJCu&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1
+
+Resistances https://www.amazon.fr/ALLECIN-Valeurs-R%C3%A9sistances-Assortiment-M%C3%A9tallique/dp/B0BTP88DZN/ref=sr_1_2_sspa?__mk_fr_FR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=3DG23E6ZK4T6V&dib=eyJ2IjoiMSJ9.0bqUCnJaFl34kOTG6RPdsFmrPNVw-hwiJ3SnJz1z40YoS_Xta446ntEuSXu91qq0GEtTzDLDpNX_tD1YlAzyG1uyyXv2UAUpExKadNXzX5N0d9EC188644upL3ZaXwFVdTa260UnCVoDJFVyXu-jOdkmBTZ4UoLoKOf7cTBfo1qlezu5sPhg8jYLC4BvHHQq5ZcAEfvM4uyrsnWGDy-PJK2mMOoHoPAHXsRyOpSDjirsZBhQn1iSNtQi7ogRFkR8ZbJUSx7Wp4ZgnJxPRNGEjuL0SuybhiP2xEe6BKILHIs.0Jv05pM7EaJFptFNpUBHcuaZx-UQ1_FSVQQ6LrwG2AA&dib_tag=se&keywords=kit%2Bresistance&qid=1780575931&sprefix=kit%2Bresistance%2Caps%2C123&sr=8-2-spons&aref=MaRE0po0vx&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1
+
+intrerupteur a bascule https://www.amazon.fr/VEXUNGA-Interrupteur-2Positions-Commutateur-2Broches/dp/B0CSFZPP87/ref=sxin_15_pa_sp_search_thematic_sspa?content-id=amzn1.sym.94fbbe7a-96da-4180-9aa9-cb0d045ea04d%3Aamzn1.sym.94fbbe7a-96da-4180-9aa9-cb0d045ea04d&crid=1EGU3D0AZQ24A&cv_ct_cx=interrupteur%2Ba%2Bbascule&keywords=interrupteur%2Ba%2Bbascule&pd_rd_i=B0CSFZPP87&pd_rd_r=63b75372-c96e-485c-baf6-4ef351f899dc&pd_rd_w=R0WmV&pd_rd_wg=ABWvh&pf_rd_p=94fbbe7a-96da-4180-9aa9-cb0d045ea04d&pf_rd_r=TMJM4E5KN28CA3H2VPYS&qid=1780576124&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sprefix=interrupteur%2Ba%2B%2Caps%2C124&sr=1-2-86ee67e3-2ea6-4725-8419-71cfe38eb657-spons&aref=KAzMGdJELT&sp_csd=d2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM&th=1
+
+Support batterie (a prendre 2fois) https://www.amazon.fr/sourcing-map-Rangement-Emplacements-Conducteur/dp/B0947CLY1G/ref=sr_1_35?__mk_fr_FR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=3S944EQA37H6D&dib=eyJ2IjoiMSJ9.cEgo4jXppRAR5_qvUaMN1OS-EMAsO9VM1TDMGTgnG-yJAQEgzL8SlC8eU6sv46Ap0KXhWG2RhncPpjdaxU-_A1JaxW3MySZuJwetRZa80prDFVd2CP4yxk075c8AnDakW6RffAvvT-H4OfhXNZ4FxIHkZ4i-w7dINexsbEQ9HZylVDMIv3xsTVUcuf21V4EVmpXW1mrLGPFVORbXE1LcXScX_IYCbMaNYN6VZB9B2G2ZuE43aIjuQBteYMYlY9tTX4W89sQ-OQbB7casgKu7FbkbVb7QvtnXhFBdPFqIJSw.Ix94N44qYmVQvcSkoUC1u0SXXaaegHnG48EVBskWhBs&dib_tag=se&keywords=support+batterie+18650+1+slot+avec+fil&qid=1780577141&sprefix=support+batterie+18650+1+slot+avec+fils%2Caps%2C118&sr=8-35
+
+Ecran lcd https://www.amazon.fr/Freenove-Display-Compatible-Arduino-Raspberry/dp/B0B76Z83Y4/ref=sr_1_6?__mk_fr_FR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=LCDORK9CQYGO&dib=eyJ2IjoiMSJ9.T4u7Bwn3fHfrqUqJm87mCI0fLQHpg_BonGUBfqSXSKBQk4FlE3XxWIaimSFsARRQ_Nk1STTJNS13qqe-m7uPl3fYjWXOwCsk0IvIBVvZ90damTU2czyQ6Z6DPk5976gPP_av4vVSvl025Q64TvOP1aBLyMY7aeu_WXKZA5dS-MsRFuDjD1QEMtAGz4HFrvuOEMqqGhqPHCrUF50nrQDyMegPhnwr-uPK3bIFK509Bfkv4EayvgFbPX4IXfXjHY1U9hy8HGSOBlwc9W6-bLBbd0h9QTC6OufsA7fj9_f4bW4.uTFeFlFedjNOLLkpKzRFCESAs-Y7UuycNm0l2YJJelI&dib_tag=se&keywords=LCD%2B1602%2BModule%2Bavec%2Bi2c%2Binterface&qid=1780577482&sprefix=lcd%2B1602%2Bmodule%2Bavec%2Bi2c%2Binterface%2B%2Caps%2C131&sr=8-6&th=1
+
+Haut Parleur https://www.amazon.fr/Pi%C3%A8ces-Haut-Parleur-Interne-Haut-Parleurs-Multim%C3%A9dias/dp/B09MRK24PP/ref=sxin_15_pa_sp_search_thematic_sspa?__mk_fr_FR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&content-id=amzn1.sym.2b04206e-43f5-4bd8-b39d-d4671ceea54e%3Aamzn1.sym.2b04206e-43f5-4bd8-b39d-d4671ceea54e&crid=2OG42VKNWZIQ2&cv_ct_cx=Haut+Parleur+8+ohms&keywords=Haut+Parleur+8+ohms&pd_rd_i=B09MRK24PP&pd_rd_r=74579e9a-be8d-4580-a937-7ed841783bc4&pd_rd_w=33iAj&pd_rd_wg=qxUJh&pf_rd_p=2b04206e-43f5-4bd8-b39d-d4671ceea54e&pf_rd_r=8KB99FDBDQQ2J3N7WEPK&qid=1780577563&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sprefix=haut+parleur+8+ohms%2Caps%2C116&sr=1-2-1c0bc4f8-9a4b-47e4-b117-3d30b74c13f1-spons&aref=of4FgjYMCc&sp_csd=d2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM&psc=1
+
+amplificateur https://www.amazon.fr/Gebildet-Amplificateur-Damplificateur-Amplificateurs-Potentiom%C3%A8tre/dp/B0DPMNYR2B/ref=sr_1_3_sspa?__mk_fr_FR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=ZR9JPTI083XE&dib=eyJ2IjoiMSJ9.V0MWN_wgdAOULFNliOyMNJd_J8VxhF8fgr_yVLeJdI5TjL7TkrXyCLtDGJyufmAjUbZPnAh0JP5NEDPH7oNVWa1UG2doGtjIBSheycB0Zvi9Fe_NSbGJqjCXzExFCIX9VcsKBx8CO2ZByfijGn3QJyg7AIUl3PF_3ElBU8wjDqIOc0sJKdrXj1b5xJvidioYTHiF5aF4BSkCDFDM50Jsh0vsLxO_2-Mv4e1qlHDgM3xbS0kWdnnu9WqwW_jdfUr7mFIyr5cq3cQupC4Uo-QpMVWVt6vZHv5S4bj_c8vMt6Q.cnpaptqwrYQ4Nk_AFVWT4vQzCt1MalUuqfzAHQpRNeE&dib_tag=se&keywords=PAM8403&qid=1780577686&s=electronics&sprefix=pam8403%2Celectronics%2C110&sr=1-3-spons&aref=pqEEylAKvm&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1
+
+SECU BMS https://www.amazon.fr/Lord-Tools-protection-surcharges-d%C3%A9charges/dp/B0FH4LQWM4/ref=sr_1_17_sspa?adgrpid=1364494868295599&dib=eyJ2IjoiMSJ9.9lnnnW_HQg6cmNLOveYfOoxV3BIqcy1GEcPoW0n-JjDT_i1oRZ-EEOCBfbiCcNRrCcXCYKRqhfNgqo0NoyaMZvVa6oZQj_UoK0nGECW8PjvxEstzfnPcR9frItxuD_THeO4A5d8gS9RlyqaEc61pLeePlbMq2ueTFeUD5iu39V-zcVn3xwajpTGakmI5R0hJpjlJXUxPKHaXCiru9N_nqESWlyIYo1Sw3RgeP84tBFTSY7U785_l2i1Dt0klo1Gvrw5uxlYkpax6lbn_g7bt5PVvvGKzI-iktv5UD6YsYcw.fx0GGV1_TgSHkx2_8qUr9DXfn42-mQGARgzfLNklB3w&dib_tag=se&hvadid=85281350750105&hvbmt=bp&hvdev=c&hvlocphy=188146&hvnetw=o&hvqmt=p&hvtargid=kwd-85281460123347%3Aloc-66&hydadcr=4666_2162929&keywords=bms+1s&mcid=6142de0bd7ee38af821ce7c70ce811df&msclkid=bfeff31052d815ae24b299312883982d&qid=1780578910&sr=8-17-spons&aref=BGKC4lo7q6&sp_csd=d2lkZ2V0TmFtZT1zcF9tdGY&psc=1
