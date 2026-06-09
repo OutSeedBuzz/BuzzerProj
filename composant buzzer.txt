@@ -1,10 +1,10 @@
 BUZZER:
 
 CARTE ESP32
-leds (APA106 8MM x2 )
-bouton poussoir ( Bouton Poussoir 4Pin 12x12x5mm )
-batterie ( Samsung INR18650-35E 3400mAh )
-module usb c ( TP4056 Module Chargeur 5V 1A USB C ) ( Le module IP2312 (recharge 3x plus rapide )
+leds
+bouton poussoir
+batterie
+module usb c
 Module Boost MT3608
 breadboards
 resistances
@@ -16,9 +16,9 @@ Support de batterie berceaux 18650 2 places
 MODULE INTERMMEDIAIRE:
 
 CARTE ESP32 
-ecran lcd ( LCD 1602 Module avec i2c interface )
-batterie ( Samsung INR18650-35E 3400mAh )
-module usb c ( TP4056 Module Chargeur 5V 1A USB C ) ( Le module IP2312 (recharge 3x plus rapide )
+ecran lcd
+batterie
+module usb c
 Module Boost MT3608
 breadboards
 resistances
@@ -28,8 +28,6 @@ led APA106
 Haut Parleur 8 ohms
 PAM8403
 
-(Module carte SD
-Carte SD)
 
 
 
