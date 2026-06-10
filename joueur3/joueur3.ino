@@ -4,7 +4,7 @@
 // =================================================================
 // 🛠️ CONFIGURATION DU JOUEUR (Modifie juste ce chiffre !)
 // Mets '2' pour ta Carte 2, et mets '3' pour ta Carte 3.
-const int NUMERO_JOUEUR = 2; 
+const int NUMERO_JOUEUR = 3; 
 // =================================================================
 
 // --- CONFIGURATION WI-FI ---
@@ -13,7 +13,7 @@ const char* password = "12345678";
 
 // --- CONFIGURATION MATÉRIELLE ---
 const int pinInterrupteur = 4; // L'interrupteur sur la broche D4 et GND
-const int pinLed = 5;          // La petite LED bleue intégrée
+const int pinLed = 2;          // La petite LED bleue intégrée
 bool dernierEtat = HIGH;       
 
 // --- FONCTION D'ENVOI DU BUZZ ---
