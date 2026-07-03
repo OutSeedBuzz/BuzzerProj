@@ -1,0 +1,50 @@
+PLAN BUZZER
+
+COMPOSANTS :
+
+BATTERIE > MODULE USB > INTERRUPTEUR > MODULE BOOST > CARTE ESP32
+
+Module usb-c : permet de recharger les batteries et de pouvoir alimenter la carte esp32 par cable.
+
+Interrupteur : permet d'allumer ou éteindre l'alimentatiion pour économisé la batterie. ( à éteindre quand ont recharge le buzzer et module central. )
+
+Module BOOST : permet d'augmenter la tension à 5V pour que le systèmme marche correctement.
+
+
+
+Plan MODULE CENTRAL :
+
+
+Le module central créé le wifi apppelé ESP32_SERVER, les buzzers se connectent au wifi ainsi que le téléphone qui gère le quizz dès que le téléphone est connecté il faut aller sur navigateur chercher l'adresse 192.168.4.1 
+c'est la qu'on contrôle tout.
+
+
+COMPOSANTS :
+
+BATTERIE > MODULE USB > INTERRUPTEUR > MODULE BOOST > CARTE ESPP32
+
+Module usb-c : permet de recharger les batteries et de pouvoir alimenter la carte esp32 par cable.
+
+Interrupteur : permet d'allumer ou éteindre l'alimentatiion pour économisé la batterie. ( à éteindre quand ont recharge le buzzer et module central. )
+
+Module BOOST : permet d'augmenter la tension à 5V pour que le systèmme marche correctement.
+
+Amplificateur : permet d'amplifier le son du haut parleur.
+
+
+
+Plan du CODE :
+
+Il faut installé une librairie dans l'application Arduino IDE : esp32 by Espressif Systems
+
+L'aplication utilisé est Arduino IDE elle permet de coder et téléversé dans la carte esp32 le code.
+
+Dans le code ont y retrouve le code du site WEB qui permet de controlé tout les modules.
+
+Le code permet de voir le temps de réaction du joueur qui a buzzer sur l'écran du module central et sur l'écran du téléphone via le site WEB, 
+il permet aussi d'évité la triche si un joueur buzz avant la fin du décompte le joueur perd une de ses 3 vies et la question sera relancé si un joueur répond 
+une mauvaise réponse il faudra cliquer ssur mauvaise réponse sur le site web, le joueur qui aura répondu faux ne pourra pas répondre à cette question et elle sera relancé.
+Si un joueur a perdu ses 3 vies a chaque fois qu'il triche il ne pourra pas participé a la question.
+Depuis le site ont peut skip/revenir aux questions qu'on veut.
+
+Le code arduino permet de bloqué les buzzers quand qulqu'un répond a une question pour évité les bruits de buzzer inutiles.

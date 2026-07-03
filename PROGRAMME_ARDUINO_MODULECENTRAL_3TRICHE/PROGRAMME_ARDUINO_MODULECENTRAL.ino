@@ -98,19 +98,12 @@ void printText(const char* text) {
 
 void clearLine(byte row) { setCursor(0, row); printText("                "); setCursor(0, row); }
 
-// --- NOUVELLE FONCTION : Gère proprement la ligne 0 sans "caractère fantôme" ---
 void majLigneQuestion() {
   String q = "Question " + String(numeroQuestion);
   String c = "C:" + String(WiFi.softAPgetStationNum());
-  
-  // On remplit le milieu avec des espaces pour atteindre exactement 16 caractères
-  while (q.length() < 16 - c.length()) {
-    q += " ";
-  }
-  q += c; // Concatène pour avoir un bloc parfait "Question 1   C:1"
-  
-  setCursor(0, 0);
-  printText(q.c_str());
+  while (q.length() < 16 - c.length()) { q += " "; }
+  q += c; 
+  setCursor(0, 0); printText(q.c_str());
 }
 
 // --- PAGE WEB ---
@@ -189,7 +182,14 @@ R"rawliteral(
         function updatePlayerUI(num, lives, isBlockedForAns, isExcluded) {
           let blocked = (isBlockedForAns == num || isExcluded == 1);
           document.getElementById('nom-j'+num).innerText = blocked ? "Joueur " + num + " 🚫" : "Joueur " + num + (num==1?" (Toi)":"");
-          document.getElementById('vies-j'+num).innerText = blocked ? "" : "🔴".repeat(lives);
+          
+          // Définition de la couleur de la vie selon le numéro du joueur
+          let symboleVie = "";
+          if (num == 1) symboleVie = "🔴"; // Rouge pour J1
+          else if (num == 2) symboleVie = "🔵"; // Bleu pour J2
+          else if (num == 3) symboleVie = "🟢"; // Vert pour J3
+
+          document.getElementById('vies-j'+num).innerText = blocked ? "" : symboleVie.repeat(lives);
         }
 
         updatePlayerUI(1, d.v1, d.b, d.e1);
@@ -254,14 +254,14 @@ void handleStartQuiz() {
 void handleNext() {
   numeroQuestion++; etatQuiz = IDLE; vainqueur = 0; joueurBloque = 0;
   exclusQuestion[1] = false; exclusQuestion[2] = false; exclusQuestion[3] = false;
-  majLigneQuestion(); // Utilise la nouvelle fonction robuste
+  majLigneQuestion(); 
   clearLine(1); server.send(200, "text/plain", "OK");
 }
 
 void handlePrev() {
   if (numeroQuestion > 1) numeroQuestion--; etatQuiz = IDLE; vainqueur = 0; joueurBloque = 0;
   exclusQuestion[1] = false; exclusQuestion[2] = false; exclusQuestion[3] = false;
-  majLigneQuestion(); // Utilise la nouvelle fonction robuste
+  majLigneQuestion(); 
   clearLine(1); server.send(200, "text/plain", "OK");
 }
 
@@ -275,6 +275,12 @@ void handleBuzz() {
 
   if (etatQuiz == GO && vainqueur == 0) {
     tempsJoueur[j] = millis() - tempsDebutReaction; vainqueur = j; etatQuiz = SHOW_SCORE;
+    
+    // Attribution des couleurs de LED au module central lors de la victoire
+    if (j == 1) setLEDColor(false, false, true);      // Joueur 1 = Bleu
+    else if (j == 2) setLEDColor(true, false, false); // Joueur 2 = Rouge
+    else if (j == 3) setLEDColor(false, true, false); // Joueur 3 = Vert
+
     playVolumeTone(800, 600);
     clearLine(1); String score = "J" + String(j) + " GAGNE: " + String(tempsJoueur[j]) + "ms"; printText(score.c_str());
   } 
@@ -302,15 +308,14 @@ void setup() {
   
   Wire.begin(21, 22); delay(50);
   
-  // Correction des délais vitaux pour le démarrage de l'écran LCD
   sendCommand(0x33); delay(5);
   sendCommand(0x32); delay(5);
   sendCommand(0x28); delay(5);
   sendCommand(0x0C); delay(5);
   sendCommand(0x06); delay(5);
-  sendCommand(0x01); delay(10); // Le fameux délai manquant qui mangeait le "Q" !
+  sendCommand(0x01); delay(10); 
   
-  majLigneQuestion(); // On affiche la première question
+  majLigneQuestion(); 
   
   WiFi.softAP(ssid, password, 1, 0, 4);
   server.on("/", handleRoot); server.on("/etat", handleEtat); 
@@ -323,7 +328,6 @@ void setup() {
 void loop() {
   server.handleClient();
   
-  // Vérification de la connexion (met à jour la ligne proprement)
   int nbStations = WiFi.softAPgetStationNum();
   if (nbStations != dernierNbStations) {
     dernierNbStations = nbStations;
